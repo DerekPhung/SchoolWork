@@ -3,49 +3,37 @@ package learning;
 import java.util.Scanner;
 
 public class AverageOfThreeIntegers {
+    Scanner input = new Scanner(System.in);
+
+    public int realNum(){
+        System.out.println("Enter a number:");
+
+        String numberString = input.nextLine();
+        
+        try{
+            int num = Integer.parseInt(numberString);
+            return num;
+        }
+        catch(Exception e){
+            System.out.println("That is not an integer, please enter an integer.");
+            return realNum();
+        }
+
+
+    }
+
     public static void main(String[] args) {
+        AverageOfThreeIntegers a = new AverageOfThreeIntegers();
         Scanner consoleInput = new Scanner(System.in);
 
         String numberString;
 
         int num1, num2, num3;
-        num1 = 0;
-        num2 = 0;
-        num3 = 0;
+        num1 = a.realNum();
+        num2 = a.realNum();
+        num3 = a.realNum();
 
-        while(true){
-        System.out.println("Enter number 1:");
-        numberString = consoleInput.nextLine();
-            try{
-                num1 = Integer.parseInt(numberString);
-                break;
-            }
-            catch(Exception ex){
-                System.err.println("That is not an integer, please enter an integer.");
-            }
-        }
 
-        while(true) {
-            System.out.println("Enter number 2:");
-            numberString = consoleInput.nextLine();
-            try {
-                num2 = Integer.parseInt(numberString);
-                break;
-            } catch (Exception ex) {
-                System.err.println("That is not an integer, please enter an integer.");
-            }
-        }
-
-        while(true) {
-            System.out.println("Enter number 3:");
-            numberString = consoleInput.nextLine();
-            try {
-                num3 = Integer.parseInt(numberString);
-                break;
-            } catch (Exception ex) {
-                System.err.println("That is not an integer, please enter an integer.");
-            }
-        }
 
         int sum = num1 + num2 + num3;
         double average = (double) sum/3;
